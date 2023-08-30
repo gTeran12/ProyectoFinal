@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "root",
+    "password": "Mito.1225",
+    "database": "courrier",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "ZYUrLi9VLAWSvmU9B9sn",
+    "database": "railway",
+    "host": "containers-us-west-49.railway.app",
+    "dialect": "mysql",
+    "port": "7538",
+    "url": "mysql://root:ZYUrLi9VLAWSvmU9B9sn@containers-us-west-49.railway.app:7538/railway"
+
+  }
+}
