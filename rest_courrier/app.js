@@ -10,8 +10,13 @@ var usersRouter = require('./routes/users');
 /* REFERENCIA AL MANEJADOR DE RUTAS */
 var packageRouter = require('./routes/rest_package');
 
+/* modulo cors*/
+var cors = require('cors');
 
 var app = express();
+
+/* middleware cors */
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
