@@ -2,31 +2,36 @@ import { Component } from '@angular/core';
 import { Package } from 'src/app/interfaces/package';
 import { PackageService } from 'src/app/providers/package.service';
 
-
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-  constructor(private dataProvider: PackageService) { }
+  constructor(private dataProvider: PackageService) {}
 
-  //Declaración de la variable que almacenará los datos
-  public data : Package[] = [];
-
+  public data: Package[] = [];
   public selectedPackage: Package | null = null;
+  public displayedColumns: string[] = ['idpackage', 'peso', 'descripcion'];
+  public dataSource: Package[] = [];
 
   ngOnInit() {
     this.dataProvider.getResponse().subscribe((response) => {
-      this.data = (response as Package[]);
-    })
+      this.data = response as Package[];
+      this.dataSource = [];
+    });
   }
 
-   /* LISTA CON LOS ATRIBUTOS DE LA INTERFAZ */
-   displayedColumns: string[] = ['idpackage','peso','descripcion'];
-   dataSource = this.data;
 
-   seleccionarPaquete(paquete: Package) {
-    this.selectedPackage = paquete;
+  seleccionarPaquete(paqueteId: string) {
+    this.selectedPackage = this.data.find((pkg) => pkg.idpackage === paqueteId) || null;
+    if (this.selectedPackage) {
+      this.dataSource = [this.selectedPackage];
+    } else {
+      this.dataSource = [];
+    }
   }
+
+
+
 }
