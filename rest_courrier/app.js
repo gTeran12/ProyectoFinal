@@ -4,17 +4,10 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
-/* MÓDULO dotenv */
-const dotenv = require("dotenv");
-
-/* CARGA DE DATOS DE CONFIGURACION EN MEMORIA */
-dotenv.config();
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 
-/* CARGA DEL MIDDLEWARE authenticateJWT */
-var authenticateJWT = require("./middleware/auth");
 
 /* REFERENCIA AL MANEJADOR DE RUTAS */
 var packageRouter = require("./routes/rest_package");
@@ -24,8 +17,6 @@ var cors = require("cors");
 
 var app = express();
 
-/* USE LA FUNCIÓN authenticateJWT */
-app.use("/rest/package", authenticateJWT, packageRouter);
 
 /* middleware cors */
 app.use(cors());
