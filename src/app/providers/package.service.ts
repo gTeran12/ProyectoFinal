@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PackageService {
-  private URL: string = 'http://localhost:3000/rest/rest_package/findAll/json';
+  private URL: string = 'https://proyectofinalbackend-production-fb08.up.railway.app/rest/rest_package/findAll/json';
 
   constructor(private http:HttpClient) { }
 
